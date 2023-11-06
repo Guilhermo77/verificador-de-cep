@@ -27,7 +27,6 @@ function buscarCep(cep) {
       fillData(json);
     })
     .catch(
-      console.log('why?'),
       cleanData(),
       (document.querySelector('.error').innerHTML = '*Informe um CEP válido')
     );
