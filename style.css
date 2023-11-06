@@ -10,6 +10,10 @@ p {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+body {
+  background-color: beige;
+}
+
 header {
   background-color: #16c172;
   height: 5vh;
@@ -21,7 +25,7 @@ h1 {
   font-size: 3.5vh;
 }
 
-.error {
+.error-message {
   color: red;
   margin: 20px;
 }
@@ -49,9 +53,11 @@ form {
   background-color: #16c172;
   padding: 0.5vh 1vw;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 #btnCep:hover {
+  transition: 0.3s;
   border: solid #16c172 1px;
   background-color: #214f4b;
   color: white;

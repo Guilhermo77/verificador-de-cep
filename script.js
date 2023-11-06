@@ -1,41 +1,52 @@
 const inputCep = document.getElementById('cep');
 const btnCep = document.getElementById('btnCep');
-const resultado = document.querySelector('.resultadoCep');
 const listItens = document.querySelectorAll('.resultadoCep-ul-item-p');
 
-const handleClick = (event) => {
-  event.preventDefault();
+const handleClick = () => {
   const data = inputCep.value;
   if (!data) {
     return;
   } else {
     inputCep.value = '';
-    buscarCep(data);
+    getCep(data);
   }
 };
 
 function cleanData() {
   listItens.forEach((e) => (e.innerHTML = ''));
-  document.querySelector('.error').innerHTML = '';
+  document.querySelector('.error-message').innerHTML = '';
   return;
 }
 
-function buscarCep(cep) {
-  fetch(`https://viacep.com.br/ws/${cep}/json/`)
-    .then((r) => r.json())
-    .then((json) => {
-      fillData(json);
-    })
-    .catch(
-      cleanData(),
-      (document.querySelector('.error').innerHTML = '*Informe um CEP válido')
-    );
+async function getCep(cep) {
+  try {
+    await fetch(`https://viacep.com.br/ws/${cep}/json/`)
+      .then((r) => r.json())
+      .then((json) => {
+        if (json.erro === true) {
+          handleError();
+        } else {
+          setData(json);
+        }
+      });
+  } catch (error) {
+    handleError();
+  }
 }
 
-function fillData(data) {
+function handleError() {
+  cleanData(),
+    (document.querySelector('.error-message').innerHTML =
+      '*Informe um CEP válido');
+}
+
+function setData(data) {
   cleanData();
   let i = 0;
   for (const key in data) {
+    if (data[key] === 'true') {
+      handleError();
+    }
     if (data.hasOwnProperty(key)) {
       listItens[i].innerHTML += data[key];
       i++;
