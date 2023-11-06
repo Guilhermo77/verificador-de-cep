@@ -1,0 +1,87 @@
+body,
+li,
+ul,
+h1,
+div,
+p {
+  margin: 0;
+  list-style: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+header {
+  background-color: #16c172;
+  height: 5vh;
+}
+
+h1 {
+  color: white;
+  margin-left: 1vh;
+  font-size: 3.5vh;
+}
+
+.error {
+  color: red;
+  margin: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+#cep {
+  display: block;
+  border: solid #222 1px;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+#btnCep {
+  width: 5vw;
+  align-self: center;
+  border: solid #16c172 1px;
+  border-radius: 8px;
+  background-color: #16c172;
+  padding: 0.5vh 1vw;
+  cursor: pointer;
+}
+
+#btnCep:hover {
+  border: solid #16c172 1px;
+  background-color: #214f4b;
+  color: white;
+}
+
+main {
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.resultadoCep-ul {
+  margin-top: 10vh;
+  display: grid;
+  grid-template-columns: 300px 300px 300px 300px;
+}
+
+.resultadoCep-ul-item {
+  border-bottom: #eee solid 1px;
+  background-color: #222;
+  color: white;
+  padding: 1vh 1vw;
+  font-weight: bold;
+}
+
+.resultadoCep-ul-item-p {
+  border: #222 solid 1px;
+  background-color: #eee;
+  height: 39px;
+  font-weight: bold;
+}
